@@ -1,1 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Superposition – Phase 2</title>
 
+  <style>
+    body {
+      background: #0a0a0a;
+      color: white;
+      font-family: "Times New Roman", serif;
+      display: flex;
+      justify-content: center;
+      padding: 60px 20px;
+    }
+
+    .container {
+      max-width: 700px;
+      line-height: 1.7;
+      position: relative;
+    }
+
+    .line {
+      position: relative;
+      margin-bottom: 10px;
+    }
+
+    .base {
+      color: white;
+    }
+
+    .blue, .red {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .blue {
+      color: #4da3ff;
+      transform: translateX(-1px);
+    }
+
+    .red {
+      color: #ff4d4d;
+      transform: translateX(1px);
+    }
+
+    /* Hover zones */
+    .left:hover .blue {
+      opacity: 0.6;
+    }
+
+    .right:hover .red {
+      opacity: 0.6;
+    }
+
+    .split {
+      display: flex;
+      gap: 20px;
+    }
+
+    .zone {
+      width: 50%;
+    }
+
+    h1 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 16px;
+      font-weight: normal;
+      margin-bottom: 30px;
+      color: #aaa;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1>Φψ(3): Superposition</h1>
+  <h2>The Double Exposure Hypothesis — Phase 2</h2>
+
+  <div class="split">
+
+    <!-- LEFT (BLUE FIELD) -->
+    <div class="zone left">
+
+      <div class="line">
+        <div class="base">Every click was communion, every “like” a confirmation.</div>
+        <div class="blue">Every click was communion, every “like” a confirmation.</div>
+      </div>
+
+      <div class="line">
+        <div class="base">We called it connection—our endless mirror of belonging.</div>
+        <div class="blue">We called it connection—our endless mirror of belonging.</div>
+      </div>
+
+      <div class="line">
+        <div class="base">I traced the heat of strangers through the warm, fevered screen.</div>
+        <div class="blue">I traced the heat of strangers through the warm, fevered screen.</div>
+      </div>
+
+      <div class="line">
+        <div class="base">The feed whispered: stay; you are seen.</div>
+        <div class="blue">The feed whispered: stay; you are seen.</div>
+      </div>
+
+      <div class="line">
+        <div class="base">I believed intimacy could be transmitted in pixels.</div>
+        <div class="blue">I believed intimacy could be transmitted in pixels.</div>
+      </div>
+
+      <div class="line">
+        <div class="base">It felt holy to be counted.</div>
+        <div class="blue">It felt holy to be counted.</div>
+      </div>
+
+    </div>
+
+    <!-- RIGHT (RED FIELD) -->
+    <div class="zone right">
+
+      <div class="line">
+        <div class="base">Every click was communion, every “like” a confirmation.</div>
+        <div class="red">Desire is the algorithm’s fuel.</div>
+      </div>
+
+      <div class="line">
+        <div class="base">We called it connection—our endless mirror of belonging.</div>
+        <div class="red">Attention loops until loneliness forgets its cause.</div>
+      </div>
+
+      <div class="line">
+        <div class="base">Each heartbeat synced to the rhythm of refresh.</div>
+        <div class="red">The mirror shows no face, only metadata.</div>
+      </div>
+
+      <div class="line">
+        <div class="base">Love became a number we could all agree on.</div>
+        <div class="red">Touch reduces to trace logs and latency.</div>
+      </div>
+
+      <div class="line">
+        <div class="base">The feed whispers nothing; it only repeats.</div>
+        <div class="red">Connection decays in transit.</div>
+      </div>
+
+      <div class="line">
+        <div class="base">Holiness was the advertisement between scrolls.</div>
+        <div class="red">Love recalibrates on the hour.</div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+</body>
+</html>
