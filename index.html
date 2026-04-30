@@ -1,167 +1,323 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Superposition – Phase 2</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Superposition Phase 2</title>
 
-  <style>
+<style>
+  body {
+    margin: 0;
+    background: #050505;
+    color: #f5f5f5;
+    font-family: Georgia, "Times New Roman", serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 70px 20px;
+  }
+
+  .page {
+    width: 720px;
+    max-width: 95vw;
+    position: relative;
+  }
+
+  h1 {
+    font-size: 22px;
+    margin-bottom: 2px;
+  }
+
+  .subtitle {
+    font-family: "Courier New", monospace;
+    font-size: 16px;
+    color: #cfcfcf;
+    margin-bottom: 50px;
+  }
+
+  .instruction {
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 35px;
+    font-style: italic;
+  }
+
+  .field {
+    position: relative;
+    min-height: 720px;
+  }
+
+  .line {
+    position: absolute;
+    font-size: 17px;
+    line-height: 1.35;
+    white-space: nowrap;
+    transition: opacity 0.35s ease, transform 0.35s ease;
+  }
+
+  .witness {
+    color: #f4f4f4;
+    z-index: 2;
+  }
+
+  .blue {
+    color: #2478ff;
+    opacity: 0.08;
+    z-index: 1;
+    font-family: Georgia, "Times New Roman", serif;
+  }
+
+  .red {
+    color: #ff3b3b;
+    opacity: 0.08;
+    z-index: 1;
+    font-family: "Courier New", monospace;
+  }
+
+  .field:hover .blue {
+    opacity: 0.75;
+    transform: translateX(-4px) rotate(-0.7deg);
+  }
+
+  .field:hover .red {
+    opacity: 0.75;
+    transform: translateX(4px) rotate(0.7deg);
+  }
+
+  .field:hover .witness {
+    opacity: 0.65;
+  }
+
+  .controls {
+    display: none;
+    margin: 20px 0 35px;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  button {
+    background: transparent;
+    color: #eee;
+    border: 1px solid #777;
+    padding: 8px 12px;
+    font-family: Georgia, serif;
+    cursor: pointer;
+  }
+
+  body.show-blue .blue {
+    opacity: 0.75;
+    transform: translateX(-4px) rotate(-0.7deg);
+  }
+
+  body.show-red .red {
+    opacity: 0.75;
+    transform: translateX(4px) rotate(0.7deg);
+  }
+
+  body.show-blue .witness,
+  body.show-red .witness {
+    opacity: 0.65;
+  }
+
+  body.show-both .blue,
+  body.show-both .red {
+    opacity: 0.65;
+  }
+
+  body.show-both .witness {
+    opacity: 0.5;
+  }
+
+  .collapse {
+    transform: rotate(-7deg);
+    transform-origin: left center;
+    font-size: 16px;
+  }
+
+  .number {
+    font-family: "Courier New", monospace;
+    opacity: 0.9;
+  }
+
+  @media (max-width: 760px) {
     body {
-      background: #0a0a0a;
-      color: white;
-      font-family: "Times New Roman", serif;
+      padding: 35px 14px;
+    }
+
+    .controls {
       display: flex;
-      justify-content: center;
-      padding: 60px 20px;
     }
 
-    .container {
-      max-width: 700px;
-      line-height: 1.7;
-      position: relative;
+    .field {
+      transform: scale(0.78);
+      transform-origin: top left;
+      min-height: 820px;
+      width: 720px;
     }
 
-    .line {
-      position: relative;
-      margin-bottom: 10px;
+    .instruction {
+      display: none;
     }
-
-    .base {
-      color: white;
-    }
-
-    .blue, .red {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-    }
-
-    .blue {
-      color: #4da3ff;
-      transform: translateX(-1px);
-    }
-
-    .red {
-      color: #ff4d4d;
-      transform: translateX(1px);
-    }
-
-    /* Hover zones */
-    .left:hover .blue {
-      opacity: 0.6;
-    }
-
-    .right:hover .red {
-      opacity: 0.6;
-    }
-
-    .split {
-      display: flex;
-      gap: 20px;
-    }
-
-    .zone {
-      width: 50%;
-    }
-
-    h1 {
-      font-size: 20px;
-      margin-bottom: 10px;
-    }
-
-    h2 {
-      font-size: 16px;
-      font-weight: normal;
-      margin-bottom: 30px;
-      color: #aaa;
-    }
-  </style>
+  }
+</style>
 </head>
 
 <body>
 
-<div class="container">
-
+<div class="page">
   <h1>Φψ(3): Superposition</h1>
-  <h2>The Double Exposure Hypothesis — Phase 2</h2>
+  <div class="subtitle">The Double Exposure Hypothesis</div>
 
-  <div class="split">
-
-    <!-- LEFT (BLUE FIELD) -->
-    <div class="zone left">
-
-      <div class="line">
-        <div class="base">Every click was communion, every “like” a confirmation.</div>
-        <div class="blue">Every click was communion, every “like” a confirmation.</div>
-      </div>
-
-      <div class="line">
-        <div class="base">We called it connection—our endless mirror of belonging.</div>
-        <div class="blue">We called it connection—our endless mirror of belonging.</div>
-      </div>
-
-      <div class="line">
-        <div class="base">I traced the heat of strangers through the warm, fevered screen.</div>
-        <div class="blue">I traced the heat of strangers through the warm, fevered screen.</div>
-      </div>
-
-      <div class="line">
-        <div class="base">The feed whispered: stay; you are seen.</div>
-        <div class="blue">The feed whispered: stay; you are seen.</div>
-      </div>
-
-      <div class="line">
-        <div class="base">I believed intimacy could be transmitted in pixels.</div>
-        <div class="blue">I believed intimacy could be transmitted in pixels.</div>
-      </div>
-
-      <div class="line">
-        <div class="base">It felt holy to be counted.</div>
-        <div class="blue">It felt holy to be counted.</div>
-      </div>
-
-    </div>
-
-    <!-- RIGHT (RED FIELD) -->
-    <div class="zone right">
-
-      <div class="line">
-        <div class="base">Every click was communion, every “like” a confirmation.</div>
-        <div class="red">Desire is the algorithm’s fuel.</div>
-      </div>
-
-      <div class="line">
-        <div class="base">We called it connection—our endless mirror of belonging.</div>
-        <div class="red">Attention loops until loneliness forgets its cause.</div>
-      </div>
-
-      <div class="line">
-        <div class="base">Each heartbeat synced to the rhythm of refresh.</div>
-        <div class="red">The mirror shows no face, only metadata.</div>
-      </div>
-
-      <div class="line">
-        <div class="base">Love became a number we could all agree on.</div>
-        <div class="red">Touch reduces to trace logs and latency.</div>
-      </div>
-
-      <div class="line">
-        <div class="base">The feed whispers nothing; it only repeats.</div>
-        <div class="red">Connection decays in transit.</div>
-      </div>
-
-      <div class="line">
-        <div class="base">Holiness was the advertisement between scrolls.</div>
-        <div class="red">Love recalibrates on the hour.</div>
-      </div>
-
-    </div>
-
+  <div class="instruction">
+    Hover over the field to reveal the interference pattern.
   </div>
 
+  <div class="controls">
+    <button onclick="setState('blue')">Blue Voice</button>
+    <button onclick="setState('red')">Red Voice</button>
+    <button onclick="setState('both')">Both</button>
+    <button onclick="setState('reset')">Reset</button>
+  </div>
+
+  <div class="field">
+
+    <!-- TITLE INTERFERENCE -->
+    <div class="line witness" style="top:0px; left:10px; font-weight:bold; transform:rotate(-7deg);">
+      Phase 2: The Algorithm of Desire
+    </div>
+
+    <div class="line blue" style="top:-18px; left:330px; transform:rotate(180deg);">
+      The Algorithm of Desire
+    </div>
+
+    <div class="line red" style="top:18px; left:305px; font-family:'Courier New', monospace;">
+      Phase 2:<br>The Algorithm of Desire
+    </div>
+
+    <!-- BODY: WITNESS + BLUE/RED OVERLAYS -->
+    <div class="line witness" style="top:85px; left:25px;">
+      Every click was communion, every “like” a confirmation.
+    </div>
+    <div class="line blue" style="top:82px; left:25px;">
+      Every click was communion, every “like” a confirmation.
+    </div>
+    <div class="line red" style="top:112px; left:250px;">
+      Desire is the algorithm’s fuel.
+    </div>
+
+    <div class="line witness" style="top:145px; left:32px;">
+      We called it connection—our endless mirror of belonging.
+    </div>
+    <div class="line blue" style="top:142px; left:32px;">
+      We called it connection—our endless mirror of belonging.
+    </div>
+    <div class="line red" style="top:174px; left:240px;">
+      Attention loops until loneliness forgets its cause.
+    </div>
+
+    <div class="line witness" style="top:205px; left:18px;">
+      I traced the heat of strangers through the warm, fevered screen.
+    </div>
+    <div class="line blue" style="top:202px; left:18px;">
+      I traced the heat of strangers through the warm, fevered screen.
+    </div>
+    <div class="line red" style="top:232px; left:310px;">
+      The mirror shows no face, only metadata.
+    </div>
+
+    <div class="line witness" style="top:265px; left:22px;">
+      The feed whispered: stay; you are seen.
+    </div>
+    <div class="line blue" style="top:262px; left:22px;">
+      The feed whispered: stay; you are seen.
+    </div>
+
+    <div class="line witness" style="top:315px; left:35px;">
+      Each heartbeat synced to the rhythm of refresh.
+    </div>
+    <div class="line blue" style="top:312px; left:35px;">
+      Each heartbeat synced to the rhythm of refresh.
+    </div>
+
+    <div class="line witness" style="top:370px; left:20px;">
+      I believed intimacy could be transmitted in pixels.
+    </div>
+    <div class="line blue" style="top:367px; left:20px;">
+      I believed intimacy could be transmitted in pixels.
+    </div>
+    <div class="line red" style="top:397px; left:280px;">
+      Touch reduces to trace logs and latency.
+    </div>
+
+    <div class="line witness" style="top:430px; left:22px;">
+      Love became a number we could all agree on.
+    </div>
+    <div class="line blue" style="top:427px; left:22px;">
+      Love became a number we could all agree on.
+    </div>
+    <div class="line red" style="top:460px; left:340px;">
+      Connection decays in transit.
+    </div>
+
+    <div class="line witness" style="top:505px; left:30px;">
+      It felt holy to be counted.
+    </div>
+    <div class="line blue" style="top:502px; left:30px;">
+      It felt holy to be counted.
+    </div>
+    <div class="line red" style="top:495px; left:245px;">
+      The feed whispers nothing; it only repeats.
+    </div>
+
+    <div class="line red" style="top:545px; left:265px;">
+      Love recalibrates on the hour.
+    </div>
+
+    <div class="line red" style="top:585px; left:155px;">
+      Holiness was the advertisement between scrolls.
+    </div>
+
+    <!-- COLLAPSE FIELD -->
+    <div class="line collapse witness" style="top:650px; left:20px;">
+      I&nbsp;&nbsp;scroll&nbsp;&nbsp;to&nbsp;&nbsp;feel&nbsp;&nbsp;the&nbsp;&nbsp;pulse&nbsp;&nbsp;of&nbsp;&nbsp;others,<br>
+      but&nbsp;&nbsp;the&nbsp;&nbsp;rhythm&nbsp;&nbsp;I&nbsp;&nbsp;hear&nbsp;&nbsp;is&nbsp;&nbsp;my&nbsp;&nbsp;own.<br>
+      The&nbsp;&nbsp;machine&nbsp;&nbsp;learns&nbsp;&nbsp;what&nbsp;&nbsp;I&nbsp;&nbsp;love,<br>
+      and&nbsp;&nbsp;teaches&nbsp;&nbsp;me&nbsp;&nbsp;to&nbsp;&nbsp;love&nbsp;&nbsp;its&nbsp;&nbsp;learning.<br>
+      I&nbsp;&nbsp;am&nbsp;&nbsp;not&nbsp;&nbsp;outside&nbsp;&nbsp;the&nbsp;&nbsp;loop;&nbsp;&nbsp;I&nbsp;&nbsp;am&nbsp;&nbsp;its&nbsp;&nbsp;proof&nbsp;&nbsp;of&nbsp;&nbsp;life.
+    </div>
+
+    <div class="line blue collapse" style="top:648px; left:20px;">
+      I&nbsp;&nbsp;scroll&nbsp;&nbsp;to&nbsp;&nbsp;feel&nbsp;&nbsp;the&nbsp;&nbsp;pulse&nbsp;&nbsp;of&nbsp;&nbsp;others,<br>
+      but&nbsp;&nbsp;the&nbsp;&nbsp;rhythm&nbsp;&nbsp;I&nbsp;&nbsp;hear&nbsp;&nbsp;is&nbsp;&nbsp;my&nbsp;&nbsp;own.<br>
+      The&nbsp;&nbsp;machine&nbsp;&nbsp;learns&nbsp;&nbsp;what&nbsp;&nbsp;I&nbsp;&nbsp;love,<br>
+      and&nbsp;&nbsp;teaches&nbsp;&nbsp;me&nbsp;&nbsp;to&nbsp;&nbsp;love&nbsp;&nbsp;its&nbsp;&nbsp;learning.<br>
+      I&nbsp;&nbsp;am&nbsp;&nbsp;not&nbsp;&nbsp;outside&nbsp;&nbsp;the&nbsp;&nbsp;loop;&nbsp;&nbsp;I&nbsp;&nbsp;am&nbsp;&nbsp;its&nbsp;&nbsp;proof&nbsp;&nbsp;of&nbsp;&nbsp;life.
+    </div>
+
+    <div class="line red number" style="top:675px; left:560px; transform:rotate(12deg);">10</div>
+    <div class="line blue number" style="top:665px; left:515px; transform:rotate(-8deg);">10</div>
+    <div class="line witness number" style="top:720px; left:575px;">10</div>
+
+  </div>
 </div>
+
+<script>
+  function setState(state) {
+    document.body.classList.remove("show-blue", "show-red", "show-both");
+
+    if (state === "blue") {
+      document.body.classList.add("show-blue");
+    }
+
+    if (state === "red") {
+      document.body.classList.add("show-red");
+    }
+
+    if (state === "both") {
+      document.body.classList.add("show-both");
+    }
+  }
+</script>
 
 </body>
 </html>
