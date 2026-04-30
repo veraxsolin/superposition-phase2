@@ -47,50 +47,88 @@
   min-height: 920px;
   }
 
-  .line {
-    position: absolute;
-    font-size: 17px;
-    line-height: 1.35;
-    white-space: nowrap;
-    transition: opacity 0.35s ease, transform 0.35s ease;
-  }
+  /* BASE LINE */
+.line {
+  position: absolute;
+  font-size: 17px;
+  line-height: 1.35;
+  white-space: nowrap;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
 
-  .witness {
-    color: #f4f4f4;
-    z-index: 2;
-  }
+/* 1. BLUE VOICE FOUNDATION */
+.blue-base {
+  color: #ffffff;
+  font-family: Georgia, "Times New Roman", serif;
+  opacity: 1;
+  z-index: 2;
+}
 
-  .blue {
-    color: #2478ff;
-    opacity: 0.08;
-    z-index: 1;
-    font-family: Georgia, "Times New Roman", serif;
-  }
+.blue-hover {
+  color: #2478ff;
+  font-family: Georgia, "Times New Roman", serif;
+  opacity: 0;
+  z-index: 3;
+}
 
-  .red {
+/* 2. RED VOICE FOUNDATION */
+.red-base {
+  color: #ffffff;
+  font-family: "Courier New", monospace;
+  opacity: 1;
+  z-index: 2;
+}
+
+.red-hover {
   color: #ff3b3b;
   font-family: "Courier New", monospace;
-  opacity: 0.08;
+  opacity: 0;
+  z-index: 3;
 }
 
-.red-base {
-  color: #f4f4f4;
-  font-family: "Courier New", monospace;
- }
-  
-  .field:hover .blue {
-  opacity: 0.58;
-  transform: translateX(-16px) rotate(-0.3deg);
+/* 3. WITNESS — never changes */
+.witness {
+  color: #ffffff;
+  font-family: Georgia, "Times New Roman", serif;
+  opacity: 1;
+  z-index: 4;
 }
 
-.field:hover .red {
-  opacity: 0.62;
-  transform: translateX(16px) rotate(0.3deg);
+/* 4. TITLE DUPLICATES */
+.title-base {
+  color: #ffffff;
+  opacity: 1;
+  z-index: 4;
 }
 
-  .field:hover .witness {
-    opacity: 0.65;
-  }
+.title-blue {
+  color: #2478ff;
+  opacity: 0;
+  z-index: 3;
+}
+
+.title-red {
+  color: #ff3b3b;
+  opacity: 0;
+  z-index: 3;
+}
+
+/* HOVER BEHAVIOR */
+.field:hover .blue-hover {
+  opacity: 0.85;
+  transform: translate(-3px, -5px) rotate(-0.45deg);
+}
+
+.field:hover .red-hover {
+  opacity: 0.85;
+  transform: translate(3px, 5px) rotate(0.45deg);
+}
+
+.field:hover .title-blue,
+.field:hover .title-red {
+  opacity: 0.85;
+}
+
 
   .controls {
     display: none;
@@ -185,172 +223,213 @@
 <div class="field">
 
   <!-- HEADER / TITLE FIELD -->
-  <div class="line witness" style="top:0px; left:95px; font-weight:bold;">
-    Φψ(3): Superposition
-  </div>
 
-  <div class="line witness" style="top:22px; left:96px; font-family:'Courier New', monospace;">
-    The Double Exposure Hypothesis
-  </div>
+<div class="line title-base" style="top:0px; left:95px; font-weight:bold;">
+  Φψ(3): Superposition
+</div>
 
-  <div class="line blue" style="top:42px; left:95px; font-family:'Courier New', monospace;">
-    The Double
-  </div>
+<div class="line title-base" style="top:22px; left:96px; font-family:'Courier New', monospace;">
+  The Double Exposure Hypothesis
+</div>
+  
+<div class="line title-blue" style="top:42px; left:95px; font-family:'Courier New', monospace;">
+  The Double
+</div>
 
-  <div class="line blue" style="top:64px; left:96px; font-family:'Courier New', monospace;">
-    Exposure Hypothesis
-  </div>
+<div class="line title-red" style="top:42px; left:325px; font-family:'Courier New', monospace;">
+  The Double
+</div>
 
-  <div class="line red" style="top:42px; left:325px; font-family:'Courier New', monospace;">
-    The Double
-  </div>
+<div class="line title-blue" style="top:64px; left:96px; font-family:'Courier New', monospace;">
+  Exposure Hypothesis
+</div>
 
-  <div class="line red" style="top:64px; left:326px; font-family:'Courier New', monospace;">
-    Exposure Hypothesis
-  </div>
+<div class="line title-red" style="top:64px; left:326px; font-family:'Courier New', monospace;">
+  Exposure Hypothesis
+</div>
 
   <!-- PHASE TITLE -->
-  <div class="line witness" style="top:120px; left:92px; font-weight:bold; transform:rotate(-8deg);">
+  <div class="line title-base" style="top:120px; left:92px; font-weight:bold; transform:rotate(-8deg);">
     Phase 2: The Algorithm of Desire
   </div>
 
-  <div class="line blue" style="top:120px; left:360px; transform:rotate(180deg); font-family:'Courier New', monospace;">
+  <div class="line title-blue" style="top:120px; left:360px; transform:rotate(180deg); font-family:'Courier New', monospace;">
     The Algorithm of Desire
   </div>
 
-  <div class="line blue" style="top:145px; left:388px; transform:rotate(180deg); font-family:'Courier New', monospace;">
+  <div class="line title-blue" style="top:145px; left:388px; transform:rotate(180deg); font-family:'Courier New', monospace;">
     Phase 2:
   </div>
 
-  <div class="line red" style="top:135px; left:300px; font-family:'Courier New', monospace;">
+  <div class="line title-red" style="top:135px; left:300px; font-family:'Courier New', monospace;">
     Phase 2:<br>The Algorithm of Desire
   </div>
 
   <!-- BODY FIELD -->
-  <div class="line witness" style="top:205px; left:105px;">
-    Every click was communion, every “like” a confirmation.
-  </div>
-  <div class="line blue" style="top:205px; left:105px;">
-    Every click was communion, every “like” a confirmation.
+
+  /* BLUE VOICE LINE 1 */
+  
+  <div class="line blue-base" style="top:205px; left:105px;">
+  Every click was communion, every “like” a confirmation.
   </div>
 
-  <div class="line witness" style="top:258px; left:102px;">
+  <div class="line blue-hover" style="top:205px; left:105px;">
+  Every click was communion, every “like” a confirmation.
+  </div>
+  
+  /* BLUE VOICE LINE 2 */
+
+  <div class="line blue-base" style="top:258px; left:102px;">
     We called it connection—our endless mirror of belonging.
   </div>
-  <div class="line blue" style="top:258px; left:102px;">
+  <div class="line blue-hover" style="top:258px; left:102px;">
     We called it connection—our endless mirror of belonging.
   </div>
-
-  <div class="line red-base" style="top:284px; left:265px;">
-  We called it connection—our endless mirror of belonging.
-  </div>
-
+  
+  /* RED VOICE LINE 1 */
+ 
   <div class="line red-base" style="top:284px; left:265px;">
    Desire is the algorithm’s fuel.
   </div>
 
-  <div class="line red" style="top:284px; left:265px;">
+  <div class="line red-hover" style="top:284px; left:265px;">
   Desire is the algorithm’s fuel.
   </div>
+
+  /* BLUE VOICE LINE 3 */
   
-  <div class="line witness" style="top:312px; left:102px;">
+  <div class="line blue-base" style="top:312px; left:102px;">
     I traced the heat of strangers through the warm, fevered screen.
   </div>
-  <div class="line blue" style="top:312px; left:102px;">
+  <div class="line blue-hover" style="top:312px; left:102px;">
     I traced the heat of strangers through the warm, fevered screen.
   </div>
 
+  /* RED VOICE LINE 2 */
+  
   <div class="line red-base" style="top:338px; left:120px;">
     Attention loops until loneliness forgets its cause.
   </div>
 
-  <div class="line red" style="top:338px; left:120px;">
+  <div class="line red-hover" style="top:338px; left:120px;">
    Attention loops until loneliness forgets its cause.
   </div>
 
-  <div class="line witness" style="top:368px; left:100px;">
+  /* BLUE VOICE LINE 4 */
+  
+  <div class="line blue-base" style="top:368px; left:100px;">
     The feed whispered: stay; you are seen.
   </div>
-  <div class="line blue" style="top:368px; left:100px;">
+  <div class="line blue-hover" style="top:368px; left:100px;">
     The feed whispered: stay; you are seen.
   </div>
 
+  /* RED VOICE LINE 3 */
+  
    <div class="line red-base" style="top:394px; left:260px;">
     The mirror shows no face, only metadata.
   </div>
 
-  <div class="line red" style="top:394px; left:260px;">
+  <div class="line red-hover" style="top:394px; left:260px;">
     The mirror shows no face, only metadata.
   </div>
+
+  /* BLUE VOICE LINE 5 */
   
-  <div class="line witness" style="top:420px; left:112px;">
+  <div class="line blue-base" style="top:420px; left:112px;">
     Each heartbeat synced to the rhythm of refresh.
   </div>
-  <div class="line blue" style="top:420px; left:112px;">
+  <div class="line blue-hover" style="top:420px; left:112px;">
     Each heartbeat synced to the rhythm of refresh.
   </div>
 
-  <div class="line witness" style="top:482px; left:96px;">
+  /* BLUE VOICE LINE 6 */
+  
+  <div class="line blue-base" style="top:482px; left:96px;">
     I believed intimacy could be transmitted in pixels.
   </div>
-  <div class="line blue" style="top:482px; left:96px;">
+  <div class="line blue-hover" style="top:482px; left:96px;">
     I believed intimacy could be transmitted in pixels.
   </div>
 
+  /* RED VOICE LINE 4 */
+  
    <div class="line red-base" style="top:508px; left:230px;">
     Touch reduces to trace logs and latency.
   </div>
 
-  <div class="line red" style="top:508px; left:230px;">
+  <div class="line red-hover" style="top:508px; left:230px;">
     Touch reduces to trace logs and latency.
   </div>
+
+  /* BLUE VOICE LINE 7 */
   
-  <div class="line witness" style="top:535px; left:95px;">
+  <div class="line blue-base" style="top:535px; left:95px;">
     Love became a number we could all agree on.
   </div>
-  <div class="line blue" style="top:535px; left:95px;">
+  <div class="line blue-hover" style="top:535px; left:95px;">
     Love became a number we could all agree on.
   </div>
 
+  /* RED VOICE LINE 5 */
+  
    <div class="line red-base" style="top:563px; left:315px;">
     Connection decays in transit.
   </div>
 
-  <div class="line red" style="top:563px; left:315px;">
+  <div class="line red-hover" style="top:563px; left:315px;">
     Connection decays in transit.
   </div>
+
+  /* BLUE VOICE LINE 8 */
   
-  <div class="line witness" style="top:590px; left:96px;">
+  <div class="line blue-base" style="top:590px; left:96px;">
     It felt holy to be counted.
   </div>
-  <div class="line blue" style="top:590px; left:96px;">
+  <div class="line blue-hover" style="top:590px; left:96px;">
     It felt holy to be counted.
   </div>
 
+  /* RED VOICE LINE 6 */
+  
    <div class="line red-base" style="top:622px; left:215px;">
     The feed whispers nothing; it only repeats.
   </div>
 
-  <div class="line red" style="top:622px; left:215px;">
+  <div class="line red-hover" style="top:622px; left:215px;">
     The feed whispers nothing; it only repeats.
   </div>
+
+  /* RED VOICE LINE 7 */
   
    <div class="line red-base" style="top:653px; left:300px;">
     Love recalibrates on the hour.
   </div>
 
-  <div class="line red" style="top:653px; left:300px;">
+  <div class="line red-hover" style="top:653px; left:300px;">
     Love recalibrates on the hour.
   </div>
 
+  /* RED VOICE LINE 8 */
+  
   <div class="line red-base" style="top:686px; left:150px;">
     Holiness was the advertisement between scrolls.
   </div>
 
-  <div class="line red" style="top:686px; left:150px;">
+  <div class="line red-hover" style="top:686px; left:150px;">
     Holiness was the advertisement between scrolls.
   </div>
 
+  /* WITNESS VOICE BLOCK */
+  <div class="line witness" style="top:750px; left:90px; transform:rotate(-7deg);">
+  I scroll to feel the pulse of others...
+  </div>
+  
+  <div class="line witness" style="top:780px; left:90px; transform:rotate(-7deg);">
+  But the rhythm I hear is my own.
+  </div>
+
+  
   <!-- COLLAPSE / LOOP FIELD -->
   <div class="line witness collapse" style="top:750px; left:90px;">
     I&nbsp;&nbsp;&nbsp;scroll&nbsp;&nbsp;&nbsp;to&nbsp;&nbsp;&nbsp;feel&nbsp;&nbsp;&nbsp;the&nbsp;&nbsp;&nbsp;pulse&nbsp;&nbsp;&nbsp;of&nbsp;&nbsp;&nbsp;others,<br>
