@@ -115,14 +115,31 @@
 
 /* HOVER BEHAVIOR */
 
+/* BASE STATE (at rest) */
+.blue-hover,
+.red-hover {
+  opacity: 0;
+  transform: translate(0px, 0px) rotate(0deg);
+}
+
+/* HOVER STATE (activated) */
 .field:hover .blue-hover {
   opacity: 0.85;
-  transform: translate(-3px, -18px) rotate(-0.45deg);
+  transform: translate(-2px, -28px) rotate(-0.6deg);
 }
 
 .field:hover .red-hover {
   opacity: 0.85;
-  transform: translate(3px, 18px) rotate(0.45deg);
+  transform: translate(2px, 28px) rotate(0.6deg);
+}
+
+/* TRANSITIONS (how it moves) */
+.blue-hover {
+  transition: transform 0.4s ease-out, opacity 0.3s ease;
+}
+
+.red-hover {
+  transition: transform 0.5s ease-in, opacity 0.3s ease;
 }
   
 .field:hover .title-blue,
